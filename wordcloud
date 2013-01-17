@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+basedir=$(dirname $0)
+
+export CLASSPATH=$basedir/wordcram-cli/out/production/wordcram-cli/:`echo $basedir/wordcram-cli/lib/*/*.jar|tr " " :`
+
+java com.natpryce.wordcloud.CLI "$@"
+
