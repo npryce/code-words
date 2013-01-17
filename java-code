@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Concatenate and clean Java source
+# 
+# Usage: code-to-words [<file-or-directory> ...]
+
+set -e
+
+if [ $# -eq 0 ]
+then
+    srcs="."
+else
+    srcs="$@"
+fi
+
+function ignore_comments() {
+    cpp | grep -Evx '#.+'
+}
+
+# Ignore import and package statements because package names are based on DNS names not domain terminology
+function ignore_package_names() {
+    grep -Evx '[[:space:]]*(import|package)[[:space:]].+'
+}
+
+# -exec cat works with paths that contain spaces, while pipe through xargs cat does not
+find $srcs -name '*.java' -exec cat {} \; | ignore_package_names | ignore_comments

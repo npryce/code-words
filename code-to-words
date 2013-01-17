@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Extract words from source code and output one per line
+# 
+# Usage: code-to-words <stop-words-file>
+#
+# E.g. java-code src/ | code-to-words
+#
+# To ignore specific words, add them to the stop-words file.
+#
+# To count words, pipe through word-counts
+
+set -e
+
+basedir=`dirname "$0"`
+stop_words_file=${1:?stop words file}
+
+# Discard punctuation & numeric literals.
+function extract_identifiers() {
+    sed -e 's/0[xX][[:alnum:]]\+//g' -e 's/[^[:alpha:]]\+/\n/g' | grep -v '^$'
+}
+
+# Split camel case into individual words, taking into account all-caps abbreviations, such as XML or JPEG
+function split_words() {
+    sed -e 's/\([[:lower:]]\)\([[:upper:]]\)/\1\n\2/g' \
+	-e 's/\([[:upper:]]\+\)\([[:upper:]][[:lower:]]\)/\1\n\2/g'
+}
+
+function ignore_stop_words() {
+    grep -vwf "$stop_words_file" -e . -e ..
+}
+
+# Should do stemming (with Snowball, for example)
+function group_words() {
+    tr [:upper:] [:lower:] | sort
+}
+
+extract_identifiers | split_words | ignore_stop_words | group_words

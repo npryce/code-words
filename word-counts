@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Count the number of occurrences of words and report them in order
+# 
+# Usage: word-counts [<field-separator>]
+#
+# Default field-separator is the space character
+
+set -e
+
+sep=${1:- }
+
+uniq -c | sort -rbnk 1 | awk "{print \$2 \"${sep}\" \$1;}"
