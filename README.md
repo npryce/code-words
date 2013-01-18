@@ -1,7 +1,7 @@
 Code Words
 ==========
 
-Extract and visualise the natural language used in source code.
+Get a handle on unfamiliar code by extracting and visualising the natural language programmers used when writing it.
 
 Usage
 -----
@@ -19,6 +19,7 @@ Languages supported:
  * Java: java-code, java-stop-words (just keywords) or cargo-cult-java-stop-words (also includes get, set, bean etc.)
  * C: c-code, c-stop-words
  * C++: c++-code, c++-stop-words
+
 
 Examples
 --------
