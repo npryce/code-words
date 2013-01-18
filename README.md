@@ -3,6 +3,23 @@ Code Words
 
 Extract and visualise the natural language used in source code.
 
+Usage
+-----
+
+    <language>-code <source-file-or-directory>* | code-to-words <stop-word-file> | wordcloud -o <output-file>.png
+
+E.g.
+
+    python-code ~/myproject/*.py | code-to-words python-stop-words | wordcloud -o myproject.png
+
+
+Languages supported:
+
+ * Python: python-code, python-stop-words
+ * Java: java-code, java-stop-words (just keywords) or cargo-cult-java-stop-words (also includes get, set, bean etc.)
+ * C: c-code, c-stop-words
+ * C++: c++-code, c++-stop-words
+
 Examples
 --------
 
