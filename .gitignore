@@ -1,4 +1,4 @@
 *.class
 wordcram-cli/out/
 *~
-*.png
+./*.png
