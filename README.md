@@ -24,5 +24,5 @@ To visualise extracted text as word clouds:
 
  * JDK 1.6
 
-(No command-line build yet, but the wordcram-cli directory contains files for the free IntelliJ Community Edition).
+(No command-line build yet, but the wordcram-cli directory contains project files for the free IntelliJ Community Edition).
 
