@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Concatenate and clean Java source
+# 
+# Usage: code-to-words [<file-or-directory> ...]
+
+set -e
+
+if [ $# -eq 0 ]
+then
+    srcs="."
+else
+    srcs="$@"
+fi
+
+function no_includes() {
+    grep -v '#include'
+}
+
+function ignore_comments() {
+    cpp $CPPFLAGS | grep -Evx '#.+'
+}
+
+# -exec cat works with paths that contain spaces, while pipe through xargs cat does not
+find $srcs \( -name '*.cpp' -o -name '*.cc' -o -name '*.h' -o -name '*.hh' -o -name '*.hpp' \) -exec cat {} \; | no_includes | ignore_comments
