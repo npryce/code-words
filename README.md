@@ -16,7 +16,7 @@ E.g.
 Languages supported:
 
  * Python: `python-code`.
-     * python-stop-words
+     * `python-stop-words`: most keywords
  * Java: `java-code`.
      * `java-stop-words`: most keywords
      * `java-primitive-type-stop-words`: ignores primitive types
