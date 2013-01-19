@@ -17,13 +17,13 @@ stop_words_file=${1:?stop words file}
 
 # Discard punctuation & numeric literals.
 function extract_identifiers() {
-    sed -e 's/0[xX][[:alnum:]]\+//g' -e 's/[^[:alpha:]]\+/\n/g' | grep -v '^$'
+    sed -E -e 's/0[xX][[:alnum:]]+//g' -e $'s/[^[:alpha:]]+/\\\n/g' | grep -v '^$'
 }
 
 # Split camel case into individual words, taking into account all-caps abbreviations, such as XML or JPEG
 function split_words() {
-    sed -e 's/\([[:lower:]]\)\([[:upper:]]\)/\1\n\2/g' \
-	-e 's/\([[:upper:]]\+\)\([[:upper:]][[:lower:]]\)/\1\n\2/g'
+    sed -E -e $'s/\([[:lower:]]\)\([[:upper:]]\)/\1\\\n\2/g' \
+	-e $'s/\([[:upper:]]\+\)\([[:upper:]][[:lower:]]\)/\1\\\n\2/g'
 }
 
 function ignore_stop_words() {
