@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rm -rf out
+mkdir -p out/production/wordcram-cli
+
+javac -cp `echo lib/*/*.jar | tr " " :` -d out/production/wordcram-cli `find src -name *.java`
