@@ -13,7 +13,12 @@
 set -e
 
 basedir=`dirname "$0"`
-stop_words_file=${1:?stop words file}
+
+stopword_opts=()
+for arg
+do
+    stopword_opts+=( "-f" "$arg" )
+done
 
 # Discard punctuation & numeric literals.
 function extract_identifiers() {
@@ -27,7 +32,7 @@ function split_words() {
 }
 
 function ignore_stop_words() {
-    grep -vwf "$stop_words_file" -e . -e ..
+    grep -vw "${stopword_opts[@]}" -e . -e ..
 }
 
 # Should do stemming (with Snowball, for example)
