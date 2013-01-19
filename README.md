@@ -3,6 +3,9 @@ Code Words
 
 Get a handle on unfamiliar code by extracting and visualising the natural language programmers used when writing it.
 
+![Board Game Example](https://raw.github.com/npryce/code-words/master/examples/multiplayer-board-game.png)
+
+
 Usage
 -----
 
