@@ -1,9 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
-basedir=$(dirname $0)
+basedir=`dirname $0`
+jarfile=$basedir/wordcram-cli/lib/wordcram-cli.jar
 
-export CLASSPATH=$basedir/wordcram-cli/out/production/wordcram-cli/:`echo $basedir/wordcram-cli/lib/*/*.jar|tr " " :`
+if [ ! -e $jarfile ]
+then
+	echo "ERROR: $jarfile does not exist (run make to build it)" 1>&2
+	exit 1
+fi
 
-java com.natpryce.wordcloud.CLI "$@"
+java -jar $jarfile "$@"
 

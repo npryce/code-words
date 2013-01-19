@@ -15,18 +15,20 @@ E.g.
 
 Languages supported:
 
- * Python: `python-code`.
-     * `python-stop-words`: most keywords
- * Java: `java-code`.
-     * `java-stop-words`: most keywords
-     * `java-primitive-type-stop-words`: ignores primitive types
-     * `cargo-cult-java-stop-words`: ignores get, set, bean etc.
  * C: `c-code`
      * `c-stop-words`: most C keywords
      * `c-primitive-type-stop-words`: ignores basic C types (int, char, etc.)
  * C++: `c++-code`
      * `c++-stop-words`: most C++ keywords
      * `c-primitive-type-stop-words`: ignores basic C types (int, char, etc.)
+ * Java: `java-code`.
+     * `java-stop-words`: most keywords
+     * `java-primitive-type-stop-words`: ignores primitive types
+     * `cargo-cult-java-stop-words`: ignores get, set, bean etc.
+ * Python: `python-code`
+     * `python-stop-words`: most keywords
+ * Ruby: `ruby-code`
+     * `ruby-stop-words`
 
 
 Examples
@@ -41,14 +43,14 @@ Dependencies
 To extract text from source code:
 
  * Bash
- * Sed
+ * Gnu Sed
  * Awk
+ * Java 1.6
 
-(Should work on any desktop Linux / Unix OS).
+Should work on any desktop Linux. Does not work on MacOS unless you install the Gnu command-line tools.
 
-To visualise extracted text as word clouds:
+To compile the Java wordcloud generator:
 
  * JDK 1.6
-
-(No command-line build yet, but the wordcram-cli directory contains project files for the free IntelliJ Community Edition).
+ * Gnu Make
 
