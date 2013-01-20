@@ -53,6 +53,7 @@ To extract text from source code:
 
  * Bash
  * Gnu Sed
+ * Gnu Grep
  * Awk
  * Java 1.6
 
