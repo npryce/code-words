@@ -38,6 +38,8 @@ Languages supported:
      * `python-stop-words`: most keywords
  * Ruby: `ruby-code`
      * `ruby-stop-words`
+* Scala: `scala-code`
+     * `scala-stop-words`
 
  * Haskell: `haskell-code`
      * `haskell-stop-words`
