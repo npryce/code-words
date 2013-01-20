@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+if [ $# -eq 0 ]
+then
+    srcs="."
+else
+    srcs="$@"
+fi
+
+# -exec cat works with paths that contain spaces, while pipe through xargs cat does not
+find $srcs \( -name '*.html' -o -name '*.htm' \) -exec w3m {} \; | cat
+

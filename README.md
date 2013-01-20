@@ -21,6 +21,8 @@ Languages supported:
  * C++: `c++-code`
      * `c++-stop-words`: most C++ keywords
      * `c-primitive-type-stop-words`: ignores basic C types (int, char, etc.)
+ * HTML: `html-text`
+     * no stop words file provided
  * Java: `java-code`.
      * `java-stop-words`: most keywords
      * `java-primitive-type-stop-words`: ignores primitive types
@@ -46,6 +48,10 @@ To extract text from source code:
  * Gnu Sed
  * Awk
  * Java 1.6
+
+To extract text from HTML:
+
+ * w3m
 
 Should work on any desktop Linux. Does not work on MacOS unless you install the Gnu command-line tools.
 
