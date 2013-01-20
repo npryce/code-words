@@ -39,6 +39,8 @@ Languages supported:
  * Ruby: `ruby-code`
      * `ruby-stop-words`
 
+ * Haskell: `haskell-code`
+     * `haskell-stop-words`
 
 Examples
 --------
