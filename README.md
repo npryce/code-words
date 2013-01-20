@@ -30,6 +30,9 @@ Languages supported:
      * `java-stop-words`: most keywords
      * `java-primitive-type-stop-words`: ignores primitive types
      * `cargo-cult-java-stop-words`: ignores get, set, bean etc.
+ * JavaScript: `javascript-code`.
+     * `javascript-stop-words`: ignores keywords and reserved words (from ECMA-262 Edition 3)
+     * `java-primitive-type-stop-words`: ignores primitive types
  * Python: `python-code`
      * `python-stop-words`: most keywords
  * Ruby: `ruby-code`
