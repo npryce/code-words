@@ -1,0 +1,13 @@
+clearInterval
+clearTimeout
+console
+dirname
+exports
+filename
+global
+module
+module.exports
+process
+require
+setInterval
+setTimeout
