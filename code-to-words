@@ -1,14 +1,4 @@
 #!/bin/bash
-#
-# Extract words from source code and output one per line
-# 
-# Usage: code-to-words <stop-words-file>
-#
-# E.g. java-code src/ | code-to-words
-#
-# To ignore specific words, add them to the stop-words file.
-#
-# To count words, pipe through word-counts
 
 set -e
 

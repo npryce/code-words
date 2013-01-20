@@ -1,8 +1,4 @@
 #!/bin/bash
-#
-# Concatenate and clean Java source
-# 
-# Usage: code-to-words [<file-or-directory> ...]
 
 set -e
 
