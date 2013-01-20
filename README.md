@@ -24,6 +24,8 @@ Languages supported:
  * C++: `c++-code`
      * `c++-stop-words`: most C++ keywords
      * `c-primitive-type-stop-words`: ignores basic C types (int, char, etc.)
+ * Haskell: `haskell-code`
+     * `haskell-stop-words`
  * HTML: `html-text`
      * no stop words file provided
  * Java: `java-code`.
@@ -38,11 +40,8 @@ Languages supported:
      * `python-stop-words`: most keywords
  * Ruby: `ruby-code`
      * `ruby-stop-words`
-* Scala: `scala-code`
+ * Scala: `scala-code`
      * `scala-stop-words`
-
- * Haskell: `haskell-code`
-     * `haskell-stop-words`
 
 Examples
 --------
@@ -57,15 +56,18 @@ To extract text from source code:
 
  * Bash
  * Gnu Sed
- * Gnu Grep
+ * Grep
  * Awk
- * Java 1.6
 
 To extract text from HTML:
 
  * w3m
 
-Should work on any desktop Linux. Does not work on MacOS unless you install the Gnu command-line tools.
+To visualise the results
+ 
+ * Java 1.6
+
+It should work on any desktop Linux. It does not yet work on MacOS unless you install the Gnu command-line tools.
 
 To compile the Java wordcloud generator:
 
