@@ -33,6 +33,7 @@ Languages supported:
  * JavaScript: `javascript-code`.
      * `javascript-stop-words`: ignores keywords and reserved words (from ECMA-262 Edition 3)
      * `java-primitive-type-stop-words`: ignores primitive types
+     * `nodejs-globals-stop-words`: ignores node.js globals
  * Python: `python-code`
      * `python-stop-words`: most keywords
  * Ruby: `ruby-code`
