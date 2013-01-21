@@ -44,6 +44,7 @@ Languages supported:
      * `scala-stop-words`
  * PHP: `php-code`
      * `php-stop-words`
+     * `php-strict-stop-words`
 
 Examples
 --------
