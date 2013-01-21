@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+if [ $# -eq 0 ]
+then
+    srcs="."
+else
+    srcs="$@"
+fi
+
+find $srcs -name '*.php' -exec cat {} \; | grep -Evx '[[:space:]]*(use|namespace)[[:space:]].+' | php -w

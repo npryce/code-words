@@ -42,6 +42,8 @@ Languages supported:
      * `ruby-stop-words`
  * Scala: `scala-code`
      * `scala-stop-words`
+ * PHP: `php-code`
+     * `php-stop-words`
 
 Examples
 --------
