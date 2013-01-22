@@ -23,7 +23,7 @@ line.
 The words in stop-keyword-files are filtered out after identifiers
 have been extracted from the language but before any further processing.
 
-The words in stop-words-files are filtered out after the identifiers
+The words in stop-word-files are filtered out after the identifiers
 have been split into separate words at underscores or camel-case
 boundaries and normalised to lowercase.
 
