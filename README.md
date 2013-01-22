@@ -17,9 +17,15 @@ E.g.
     java-code project/src/ | code-to-words -k java-stop-words -s cargo-cult-java-stop-words | wordcloud -o project.png
 
 
-The words in stop-keyword-files are filtered out after identifiers have been extracted from the language but before they have been split into separate words at camel-case boundaries.
+The stop-keyword files and stop-word files must have a single word per
+line.
 
-Keyword and stop-word files have a single word per line.
+The words in stop-keyword-files are filtered out after identifiers
+have been extracted from the language but before any further processing.
+
+The words in stop-words-files are filtered out after the identifiers
+have been split into separate words at underscores or camel-case
+boundaries and normalised to lowercase.
 
 
 Languages supported
@@ -34,7 +40,7 @@ Languages supported
  * Haskell: `haskell-code`
      * `haskell-stop-words`
  * HTML: `html-text`
-     * no stop words file provided
+     * no stop words file provided. Stop words files for various natural languages can be found on the web.
  * Java: `java-code`.
      * `java-stop-words`: most keywords
      * `java-primitive-type-stop-words`: ignores primitive types
