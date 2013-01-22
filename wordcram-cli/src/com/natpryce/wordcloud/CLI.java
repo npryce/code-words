@@ -1,7 +1,6 @@
 package com.natpryce.wordcloud;
 
 import processing.core.PApplet;
-import processing.core.PConstants;
 import processing.core.PGraphics;
 import wordcram.Anglers;
 import wordcram.Colorers;
@@ -11,7 +10,6 @@ import wordcram.WordCram;
 import java.util.Arrays;
 import java.util.List;
 
-import static processing.core.PConstants.IMAGE;
 import static processing.core.PConstants.JAVA2D;
 
 public class CLI {
@@ -27,8 +25,8 @@ public class CLI {
 
         processing.init();
         processing.start();
-        try {
 
+        try {
             WordCram wordCram = new WordCram(processing)
                     .fromTextString(PApplet.loadStrings(System.in))
                     .withColorer(Colorers.twoHuesRandomSats(processing))
@@ -39,18 +37,23 @@ public class CLI {
             ImageConfiguration imageConfig = parseArgs(args, wordCram);
 
             PGraphics image = processing.createGraphics(imageConfig.width, imageConfig.height, JAVA2D);
-            wordCram.withCustomCanvas(image);
+            try {
+                wordCram.withCustomCanvas(image);
 
-            image.beginDraw();
-            wordCram.drawAll();
-            image.endDraw();
+                image.beginDraw();
+                wordCram.drawAll();
+                image.endDraw();
 
-            image.save(imageConfig.fileName);
+                image.save(imageConfig.fileName);
+
+            } finally {
+                image.dispose();
+            }
 
             processing.stop();
             System.exit(0);
 
-        } catch (Throwable t){
+        } catch (Throwable t) {
             System.err.println(t.getMessage());
             System.exit(1);
         }
@@ -78,21 +81,17 @@ public class CLI {
 
         for (int i = 0; i < args.size(); i += 2) {
             String argName = args.get(i);
-            String argValue = args.get(i+1);
+            String argValue = args.get(i + 1);
 
             if (argName.equals("-o") || argName.equals("--output")) {
                 imageConfiguration.fileName = argValue;
-            }
-            else if (argName.equals("-s") || argName.equals("--size")) {
+            } else if (argName.equals("-s") || argName.equals("--size")) {
                 parseSize(argValue, imageConfiguration);
-            }
-            else if (argName.equals("-f") || argName.equals("--font")) {
+            } else if (argName.equals("-f") || argName.equals("--font")) {
                 parseFonter(argValue, wordCram);
-            }
-            else if (argName.equals("-p") || argName.equals("--padding")) {
+            } else if (argName.equals("-p") || argName.equals("--padding")) {
                 parsePadding(argValue, wordCram);
-            }
-            else {
+            } else {
                 usage();
                 System.exit(1);
             }
