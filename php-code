@@ -8,4 +8,4 @@ else
     srcs="$@"
 fi
 
-find $srcs -name '*.php' -exec cat {} \; | grep -Evx '[[:space:]]*(use|namespace)[[:space:]].+' | php -w
+find $srcs -name '*.php' -exec cat {} \; | grep -Evx '[[:space:]]*(use|namespace)[[:space:]].+' | php -w | sed -e 's/<?php//g'
