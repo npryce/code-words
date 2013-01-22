@@ -5,18 +5,25 @@ Get a handle on unfamiliar code by extracting and visualising the natural langua
 
 ![Board Game Example](https://raw.github.com/npryce/code-words/master/examples/multiplayer-board-game.png)
 
+An example generated from a multiplayer boardgame written in Java.
 
 Usage
 -----
 
-    <language>-code <source-file-or-directory>* | code-to-words <stop-word-file> [<stop-word-file>...] | wordcloud -o <output-file>.png
+    <language>-code <source-file-or-directory>* | code-to-words -k <stop-keyword-file> ... -s <stop-word-file> ... | wordcloud -o <output-file>.png
 
 E.g.
 
-    java-code project/src/ | code-to-words java-stop-words cargo-cult-java-stop-words | wordcloud -o project.png
+    java-code project/src/ | code-to-words -k java-stop-words -s cargo-cult-java-stop-words | wordcloud -o project.png
 
 
-Languages supported:
+The words in stop-keyword-files are filtered out after identifiers have been extracted from the language but before they have been split into separate words at camel-case boundaries.
+
+Keyword and stop-word files have a single word per line.
+
+
+Languages supported
+-------------------
 
  * C: `c-code`
      * `c-stop-words`: most C keywords

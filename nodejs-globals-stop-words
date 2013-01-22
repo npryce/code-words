@@ -6,7 +6,7 @@ exports
 filename
 global
 module
-module.exports
+exports
 process
 require
 setInterval
