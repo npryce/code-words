@@ -2,3 +2,4 @@
 wordcram-cli/out/
 *~
 ./*.png
+wordcram-cli/.idea/workspace.xml
