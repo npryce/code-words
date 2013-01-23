@@ -30,7 +30,7 @@ boundaries and normalised to lowercase.
 The wordcloud command has the following options:
 
  * -o _output-file_: output file name (image type is determined from the extension)
- * -s _width_x_height_ : width of the output image
+ * -s _width_`x`_height_ : width of the output image
 
 
 Languages supported
