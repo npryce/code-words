@@ -10,54 +10,59 @@ An example generated from a multiplayer boardgame written in Java.
 Usage
 -----
 
-    <language>-code <source-file-or-directory>* | code-to-words -k <stop-keyword-file> ... -s <stop-word-file> ... | wordcloud -o <output-file>.png
+    <language>-code <source-file-or-directory>* | code-to-words -k <keyword-file> ... -s <stop-word-file> ... | wordcloud -o <output-file>.png
 
 E.g.
 
-    java-code project/src/ | code-to-words -k java-stop-words -s cargo-cult-java-stop-words | wordcloud -o project.png
+    java-code project/src/ | code-to-words -k java-keywords -s cargo-cult-java-stop-words | wordcloud -o project.png
 
 
 The stop-keyword files and stop-word files must have a single word per
 line.
 
-The words in stop-keyword-files are filtered out after identifiers
+The words in keyword-files are filtered out after identifiers
 have been extracted from the language but before any further processing.
 
 The words in stop-word-files are filtered out after the identifiers
 have been split into separate words at underscores or camel-case
 boundaries and normalised to lowercase.
 
+The wordcloud command has the following options:
+
+ * -o _output-file_: output file name (image type is determined from the extension)
+ * -s _width_x_height_ : width of the output image
+
 
 Languages supported
 -------------------
 
  * C: `c-code`
-     * `c-stop-words`: most C keywords
-     * `c-primitive-type-stop-words`: ignores basic C types (int, char, etc.)
+     * `c-keywords`: most C keywords
+     * `c-primitive-type-keywords`: ignores basic C types (int, char, etc.)
  * C++: `c++-code`
-     * `c++-stop-words`: most C++ keywords
-     * `c-primitive-type-stop-words`: ignores basic C types (int, char, etc.)
+     * `c++-keywords`: most C++ keywords
+     * `c-primitive-type-keywords`: ignores basic C types (int, char, etc.)
  * Haskell: `haskell-code`
-     * `haskell-stop-words`
+     * `haskell-keywords`
  * HTML: `html-text`
      * no stop words file provided. Stop words files for various natural languages can be found on the web.
  * Java: `java-code`.
-     * `java-stop-words`: most keywords
-     * `java-primitive-type-stop-words`: ignores primitive types
-     * `cargo-cult-java-stop-words`: ignores get, set, bean etc.
+     * `java-keywords`: most keywords
+     * `java-primitive-type-keywords`: ignores primitive types
+     * `cargo-cult-java-stop-words`: ignores get, set, bean etc.  Use with the -s flag.
  * JavaScript: `javascript-code`.
-     * `javascript-stop-words`: ignores keywords and reserved words (from ECMA-262 Edition 3)
-     * `java-primitive-type-stop-words`: ignores primitive types
-     * `nodejs-globals-stop-words`: ignores node.js globals
+     * `javascript-keywords`: ignores keywords and reserved words (from ECMA-262 Edition 3)
+     * `java-primitive-type-keywords`: ignores primitive types
+     * `nodejs-globals-keywords`: ignores node.js globals
  * Python: `python-code`
-     * `python-stop-words`: most keywords
+     * `python-keywords`: most keywords
  * Ruby: `ruby-code`
-     * `ruby-stop-words`
+     * `ruby-keywords`
  * Scala: `scala-code`
-     * `scala-stop-words`
+     * `scala-keywords`
  * PHP: `php-code`
-     * `php-stop-words`
-     * `php-strict-stop-words`
+     * `php-keywords`: shows some keywords that may be the result of poor programming practice.
+     * `php-strict-keywords`: ignores all keywords
 
 Examples
 --------
