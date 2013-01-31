@@ -1,5 +1,6 @@
 abstract
 and
+array
 as
 catch
 class
@@ -40,6 +41,7 @@ public
 require
 require_once
 return
+self
 static
 switch
 this
