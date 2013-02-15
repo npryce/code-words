@@ -8,4 +8,12 @@ else
     srcs="$@"
 fi
 
-find $srcs -name '*.st' -exec cat {} \; | grep -v '#.*$'
+ignore_chunk_descriptions() {
+  grep -v "^!.*!$"
+}
+
+ignore_chunk_separators() {
+  grep -v "^\"--.*\"!$"
+}
+
+find $srcs -name '*.st' -exec cat {} \; | ignore_chunk_descriptions | ignore_chunk_separators
