@@ -16,4 +16,8 @@ ignore_chunk_separators() {
   grep -v "^\"--.*\"!$"
 }
 
-find $srcs -name '*.st' -exec cat {} \; | ignore_chunk_descriptions | ignore_chunk_separators
+ignore_comments() {
+  sed 's/".*"//g'
+}
+
+find $srcs -name '*.st' -execdir cat {} \; -printf '\n' | ignore_chunk_descriptions | ignore_chunk_separators | ignore_comments
