@@ -42,6 +42,8 @@ Languages supported:
      * `ruby-stop-words`
  * Scala: `scala-code`
      * `scala-stop-words`
+ * Smalltalk: `smalltalk-code`
+     * `smalltalk-stop-words`: ignores keywords
 
 Examples
 --------
