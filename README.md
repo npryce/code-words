@@ -63,6 +63,8 @@ Languages supported
  * PHP: `php-code`
      * `php-keywords`: shows some keywords that may be the result of poor programming practice.
      * `php-strict-keywords`: ignores all keywords
+ * Smalltalk: `smalltalk-code`
+     * `smalltalk-keywords`: ignores keywords
 
 Examples
 --------
