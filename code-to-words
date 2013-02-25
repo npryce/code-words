@@ -23,15 +23,22 @@ do
 	esac
 done
 
+# Select sed 
+if [ command -v gsed >/dev/null 2>&1 ]; then
+  SED=sed
+else
+  SED=gsed
+fi
+
 # Discard punctuation & numeric literals.
 function extract_identifiers() {
-    sed -e 's/0[xX][[:alnum:]]\+//g' -e 's/[^[:alpha:]_]\+/\n/g' | grep -v '^$'
+    $SED -e 's/0[xX][[:alnum:]]\+//g' -e 's/[^[:alpha:]_]\+/\n/g' | grep -v '^$'
 }
 
 # Split camel case into individual words, taking into account all-caps
 # abbreviations, such as XML or JPEG, and split at underscores
 function split_words() {
-    sed -e 's/\([[:lower:]]\)\([[:upper:]]\)/\1\n\2/g' \
+    $SED -e 's/\([[:lower:]]\)\([[:upper:]]\)/\1\n\2/g' \
 	    -e 's/\([[:upper:]]\+\)\([[:upper:]][[:lower:]]\)/\1\n\2/g' \
 		-e 's/_\+/\n/g'
 }
