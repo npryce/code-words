@@ -90,7 +90,7 @@ To visualise the results
  
  * Java 1.6
 
-It should work on any desktop Linux. It does not yet work on MacOS unless you install the Gnu command-line tools.
+It should work on any desktop Linux. It does not yet work on MacOS unless you install the Gnu command-line tools. If you install Gnu sed as `gsed` the script will use it.
 
 To compile the Java wordcloud generator:
 
