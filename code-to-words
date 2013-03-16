@@ -25,9 +25,9 @@ done
 
 # Select sed 
 if [ command -v gsed >/dev/null 2>&1 ]; then
-  SED=sed
-else
   SED=gsed
+else
+  SED=sed
 fi
 
 # Discard punctuation & numeric literals.
