@@ -10,7 +10,7 @@ else
 fi
 
 function ignore_comments() {
-    csc $CPPFLAGS | grep -Evx '#.+'
+    cpp | grep -Evx '#.+'
 }
 
 # Ignore import and package statements because package names are based on DNS names not domain terminology
