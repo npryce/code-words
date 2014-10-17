@@ -13,7 +13,9 @@ function ignore_comments() {
     cpp | grep -Evx '#.+'
 }
 
-# Ignore import and package statements because package names are based on DNS names not domain terminology
+# Ignore import and package statements because package names usually look like PackageName.Domain.Specific.Name,
+# or CompanyName.TeamName.Domain.Specific.Name. Both these naming conventions over-report things that are
+# not interesting, so we ignore them.
 function ignore_package_names() {
     grep -Evx '[[:space:]]*(using|namespace)[[:space:]].+'
 }
