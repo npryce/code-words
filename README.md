@@ -42,6 +42,9 @@ Languages supported
  * C++: `c++-code`
      * `c++-keywords`: most C++ keywords
      * `c-primitive-type-keywords`: ignores basic C types (int, char, etc.)
+ * C#: `csharp-code`
+     * `csharp-keywords`: most C# keywords
+     * `c-primitive-type-keywords`: ignores basic C types (int, char, etc.)
  * Haskell: `haskell-code`
      * `haskell-keywords`
  * HTML: `html-text`

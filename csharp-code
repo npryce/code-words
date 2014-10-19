@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -e
+
+if [ $# -eq 0 ]
+then
+    srcs="."
+else
+    srcs="$@"
+fi
+
+function ignore_comments() {
+    cpp | grep -Evx '#.+'
+}
+
+# Ignore import and package statements because package names usually look like PackageName.Domain.Specific.Name,
+# or CompanyName.TeamName.Domain.Specific.Name. Both these naming conventions over-report things that are
+# not interesting, so we ignore them.
+function ignore_package_names() {
+    grep -Evx '[[:space:]]*(using|namespace)[[:space:]].+'
+}
+
+# -exec cat works with paths that contain spaces, while pipe through xargs cat does not
+find $srcs -name '*.cs' -exec cat {} \; | ignore_package_names | ignore_comments
